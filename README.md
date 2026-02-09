@@ -53,14 +53,15 @@ This separation keeps the experience clear and easy for everyone.</p>
 <p>User Dashboard</p>
 <img width="1899" height="820" alt="image" src="https://github.com/user-attachments/assets/4bf2942d-d1ee-45db-b7d5-f27ef68e3cb9" />
 <img width="1920" height="876" alt="image" src="https://github.com/user-attachments/assets/20d471ab-5173-43ea-90ba-bbaf657c60fd" />
+<img width="1899" height="820" alt="image (1)" src="https://github.com/user-attachments/assets/ee6a3d75-47f7-4c01-8b2c-e54d8216396a" />
+<img width="1920" height="876" alt="image" src="https://github.com/user-attachments/assets/1d438a24-daf6-4545-a743-ee2ef1e8faa8" />
+
 
 <img width="1917" height="869" alt="Screenshot 2025-12-17 113338" src="https://github.com/user-attachments/assets/cc21406b-8298-4286-80aa-51cc28f74f0a" />
 
 <img width="1917" height="855" alt="Screenshot 2025-12-17 113434" src="https://github.com/user-attachments/assets/e5256369-a24e-4e7c-83d7-98e8e2eb5d62" />
 
 <img width="1918" height="862" alt="Screenshot 2025-12-17 113446" src="https://github.com/user-attachments/assets/10833151-7535-4cd1-8410-cf42664d0913" />
-
-<img width="1919" height="875" alt="Screenshot 2025-12-17 113519" src="https://github.com/user-attachments/assets/74a8420d-f836-4935-9c93-8b801163bd7b" />
 
 <img width="1919" height="854" alt="Screenshot 2025-12-17 113530" src="https://github.com/user-attachments/assets/c31e0d0e-029a-43a8-9a01-698a300ef970" />
 
