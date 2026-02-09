@@ -8,6 +8,8 @@
 </p>
 
 <p>User Dashboard</p>
+<img width="1919" height="880" alt="image" src="https://github.com/user-attachments/assets/2438d54b-229b-4604-9cec-1e846901c7c0" />
+
 <img width="1917" height="869" alt="Screenshot 2025-12-17 113338" src="https://github.com/user-attachments/assets/cc21406b-8298-4286-80aa-51cc28f74f0a" />
 
 <img width="1917" height="855" alt="Screenshot 2025-12-17 113434" src="https://github.com/user-attachments/assets/e5256369-a24e-4e7c-83d7-98e8e2eb5d62" />
