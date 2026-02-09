@@ -7,8 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+<p>Admin Dashboard</p>
+
+<img width="1919" height="880" alt="Screenshot 2026-02-09 135754" src="https://github.com/user-attachments/assets/c11f4974-86a8-483a-a314-1126c5a4abff" />
+
+<img width="1910" height="882" alt="Screenshot 2025-12-17 114250" src="https://github.com/user-attachments/assets/7001a44f-65eb-4723-90f1-b538375fd8f3" />
+
+<img width="1913" height="874" alt="Screenshot 2025-12-17 114302" src="https://github.com/user-attachments/assets/865464c2-55f4-43df-b35a-ab1ea5e71370" />
+
+
+<img width="1916" height="865" alt="Screenshot 2025-12-17 114316" src="https://github.com/user-attachments/assets/f304f97a-c507-4fbb-990d-457ed4556d75" />
+
+
 <p>User Dashboard</p>
-<img width="1919" height="880" alt="image" src="https://github.com/user-attachments/assets/2438d54b-229b-4604-9cec-1e846901c7c0" />
 
 <img width="1917" height="869" alt="Screenshot 2025-12-17 113338" src="https://github.com/user-attachments/assets/cc21406b-8298-4286-80aa-51cc28f74f0a" />
 
@@ -23,16 +34,6 @@
 <img width="1919" height="859" alt="Screenshot 2025-12-17 113550" src="https://github.com/user-attachments/assets/3306b66e-8b01-4169-89db-b34023279e62" />
 
 
-<p>Admin Dashboard</p>
-
-<img width="1919" height="880" alt="Screenshot 2026-02-09 135754" src="https://github.com/user-attachments/assets/c11f4974-86a8-483a-a314-1126c5a4abff" />
-
-<img width="1910" height="882" alt="Screenshot 2025-12-17 114250" src="https://github.com/user-attachments/assets/7001a44f-65eb-4723-90f1-b538375fd8f3" />
-
-<img width="1913" height="874" alt="Screenshot 2025-12-17 114302" src="https://github.com/user-attachments/assets/865464c2-55f4-43df-b35a-ab1ea5e71370" />
-
-
-<img width="1916" height="865" alt="Screenshot 2025-12-17 114316" src="https://github.com/user-attachments/assets/f304f97a-c507-4fbb-990d-457ed4556d75" />
 
 
 
