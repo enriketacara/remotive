@@ -7,19 +7,37 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 <p>
-RemoteFlow – Keep Track of Your Team, Anywhere
-RemoteFlow is a simple system that helps companies manage where their employees are working and handle leave requests easily.
-With RemoteFlow, everyone knows what’s going on:
-Employees:
-Mark your daily status as on-site or remote
+🚀 RemoteFlow
+
+RemoteFlow is a simple and intuitive system that helps companies track where their employees are working and manage leave requests — all in one place.
+
+Whether your team works remotely, on-site, or in a hybrid setup, RemoteFlow keeps everyone aligned without endless emails or confusion.
+
+👩‍💻 For Employees
+
+Mark your daily work status as On-site or Remote
+
 Submit leave requests directly from your dashboard
-See the status of your leave requests
-Admins:
-Get a full overview of your team’s statuses for any day
-Approve or reject leave requests with just a click
-Keep everything organized without chasing emails
-RemoteFlow has two dashboards – one for employees and one for admins – making it easy for everyone to use. It’s perfect for teams working remotely, on-site, or a mix of both.
-No more guessing who’s in the office or spending hours on leave paperwork – RemoteFlow makes team management smooth and simple.</p>
+
+Track the status of your leave requests in real time
+
+🛠️ For Admins
+
+View your team’s work statuses for any day
+
+Approve or reject leave requests with a single click
+
+Manage everything from one centralized dashboard
+
+📊 Dashboards
+
+RemoteFlow provides two dedicated dashboards:
+
+Employee Dashboard – simple and focused on daily updates
+
+Admin Dashboard – full visibility and control over the team
+
+This separation keeps the experience clear and easy for everyone.</p>
 <p>Admin Dashboard</p>
 
 <img width="1919" height="880" alt="Screenshot 2026-02-09 135754" src="https://github.com/user-attachments/assets/c11f4974-86a8-483a-a314-1126c5a4abff" />
