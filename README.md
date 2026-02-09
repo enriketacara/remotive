@@ -56,6 +56,7 @@ This separation keeps the experience clear and easy for everyone.</p>
 <img width="1914" height="863" alt="image" src="https://github.com/user-attachments/assets/96d7c97c-a394-4b41-aae5-eac33b06d6f2" />
 <img width="1914" height="876" alt="image" src="https://github.com/user-attachments/assets/17375ac9-2c30-45e8-88db-00427f031d84" />
 <img width="1919" height="878" alt="image" src="https://github.com/user-attachments/assets/0f777736-7612-4875-949c-dc46f31e4e00" />
+<img width="1919" height="854" alt="Screenshot 2025-12-17 113530" src="https://github.com/user-attachments/assets/c31e0d0e-029a-43a8-9a01-698a300ef970" />
 
 
 <img width="1899" height="820" alt="image" src="https://github.com/user-attachments/assets/4bf2942d-d1ee-45db-b7d5-f27ef68e3cb9" />
@@ -68,7 +69,6 @@ This separation keeps the experience clear and easy for everyone.</p>
 
 <img width="1918" height="862" alt="Screenshot 2025-12-17 113446" src="https://github.com/user-attachments/assets/10833151-7535-4cd1-8410-cf42664d0913" />
 
-<img width="1919" height="854" alt="Screenshot 2025-12-17 113530" src="https://github.com/user-attachments/assets/c31e0d0e-029a-43a8-9a01-698a300ef970" />
 
 <img width="1919" height="859" alt="Screenshot 2025-12-17 113550" src="https://github.com/user-attachments/assets/3306b66e-8b01-4169-89db-b34023279e62" />
 
