@@ -60,9 +60,7 @@ This separation keeps the experience clear and easy for everyone.</p>
 
 <img width="1899" height="820" alt="image" src="https://github.com/user-attachments/assets/4bf2942d-d1ee-45db-b7d5-f27ef68e3cb9" />
 <img width="1920" height="876" alt="image" src="https://github.com/user-attachments/assets/20d471ab-5173-43ea-90ba-bbaf657c60fd" />
-<img width="1899" height="820" alt="image (1)" src="https://github.com/user-attachments/assets/ee6a3d75-47f7-4c01-8b2c-e54d8216396a" />
-<img width="1920" height="876" alt="image" src="https://github.com/user-attachments/assets/1d438a24-daf6-4545-a743-ee2ef1e8faa8" />
-
+<img width="1647" height="771" alt="image" src="https://github.com/user-attachments/assets/cd689f33-0e1c-465c-8e36-780316e00d32" />
 
 
 
