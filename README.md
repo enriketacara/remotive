@@ -33,6 +33,8 @@ No more guessing who’s in the office or spending hours on leave paperwork – 
 
 
 <p>User Dashboard</p>
+<img width="1899" height="820" alt="image" src="https://github.com/user-attachments/assets/4bf2942d-d1ee-45db-b7d5-f27ef68e3cb9" />
+<img width="1920" height="876" alt="image" src="https://github.com/user-attachments/assets/20d471ab-5173-43ea-90ba-bbaf657c60fd" />
 
 <img width="1917" height="869" alt="Screenshot 2025-12-17 113338" src="https://github.com/user-attachments/assets/cc21406b-8298-4286-80aa-51cc28f74f0a" />
 
