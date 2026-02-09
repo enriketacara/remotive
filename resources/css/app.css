@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+
+.custom-thead-bg th,
+.custom-thead-bg {
+  background-color: #f3f4f6 !important; /* light gray */
+  color: #1f2937 !important;           /* dark text */
+}
+
+/* Dark mode */
+.theme-dark .custom-thead-bg th,
+.theme-dark .custom-thead-bg {
+  background-color: #4a586b !important; /* dark gray */
+  color: #c4cddc !important;           /* light text */
+}
+
+
+
+
+/* Light mode */
+.fc-scrollgrid,
+.fc-scrollgrid-sync-table,
+.fc-theme-standard td,
+.fc-theme-standard th,
+.fc-daygrid-day,
+.fc-col-header-cell {
+  border: 1px solid #d1d5db !important; /* thin gray */
+  border-collapse: collapse !important;
+}
+
+/* Dark mode */
+.theme-dark .fc-scrollgrid,
+.theme-dark .fc-scrollgrid-sync-table,
+.theme-dark .fc-theme-standard td,
+.theme-dark .fc-theme-standard th,
+.theme-dark .fc-daygrid-day,
+.theme-dark .fc-col-header-cell {
+  border: 1px solid #4b5563 !important; /* dark gray */
+} 
+
+
+
+
+
+

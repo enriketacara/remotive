@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+ <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Windmill Dashboard</title>
+  
+
+     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/dashboard.js',])
+   
+   
+  
+
+  </head>
+  <body>
+
+    <div 
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
+      :class="{ 'overflow-hidden': isSideMenuOpen }"
+    >
+      <!-- Desktop sidebar -->
+      <aside
+        class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
+      >
+        <div class="py-4 text-gray-500 dark:text-gray-400">
+          <a
+            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" 
+            href="#"
+          >
+            C7'Office
+          </a>
+          <ul class="mt-6">
+            <li class="relative px-6 py-3">
+               @if (request()->routeIs('user.userdashboard'))
+                  <span
+                    class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                    aria-hidden="true"
+                  ></span>
+                @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100
+                 {{ request()->routeIs('user.userdashboard')
+        ? 'text-gray-800 dark:text-gray-100'
+        : 'hover:text-gray-800 dark:hover:text-gray-200' }}"
+                href="{{ route('user.userdashboard') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                <span class="ml-4">Dashboard</span>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li class="relative px-6 py-3">
+               @if (request()->routeIs('user.forms'))
+                  <span
+                    class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                    aria-hidden="true"
+                  ></span>
+                @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
+                 {{ request()->routeIs('user.forms')
+        ? 'text-gray-800 dark:text-gray-100'
+        : 'hover:text-gray-800 dark:hover:text-gray-200' }}"
+                href="{{ route('user.forms') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  ></path>
+                </svg>
+                <span class="ml-4">Select status</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3"> 
+               @if (request()->routeIs('user.index'))
+                  <span
+                    class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                    aria-hidden="true"
+                  ></span>
+                @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
+                {{ request()->routeIs('user.index')
+        ? 'text-gray-800 dark:text-gray-100'
+        : 'hover:text-gray-800 dark:hover:text-gray-200' }}"
+                href="{{ route('user.index') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  ></path>
+                </svg>
+                <span class="ml-4">Send email</span>
+              </a>
+            </li>
+
+            <li class="relative px-6 py-3">
+              @if (request()->routeIs('user.vacanciesemployee'))
+                  <span
+                    class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                    aria-hidden="true"
+                  ></span>
+                @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
+                {{ request()->routeIs('user.vacanciesemployee')
+        ? 'text-gray-800 dark:text-gray-100'
+        : 'hover:text-gray-800 dark:hover:text-gray-200' }}"
+                href="{{ route('user.vacanciesemployee') }}" 
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                  ></path>
+                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                </svg>
+                <span class="ml-4">Vacation management</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+               @if (request()->routeIs('user.remotivecalendar'))
+                  <span
+                    class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                    aria-hidden="true"
+                  ></span>
+                @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 
+                {{ request()->routeIs('user.remotivecalendar')
+        ? 'text-gray-800 dark:text-gray-100'
+        : 'hover:text-gray-800 dark:hover:text-gray-200' }}"
+                href="{{ route('user.remotivecalendar') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                  ></path>
+                </svg>
+                <span class="ml-4">Calendar</span>
+              </a>
+            </li>
+
+           
+
+      </aside>
+      <!-- Mobile sidebar -->
+      <!-- Backdrop -->
+      <div
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+      ></div>
+      <aside
+        class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0 transform -translate-x-20"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0 transform -translate-x-20"
+        @click.away="closeSideMenu"
+        @keydown.escape="closeSideMenu"
+      >
+        <div class="py-4 text-gray-500 dark:text-gray-400">
+          <a
+            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            href="#"
+          >
+            C7'Office
+          </a>
+          <ul class="mt-6">
+            <li class="relative px-6 py-3">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                href="{{ route('user.userdashboard') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                <span class="ml-4">Dashboard</span>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ route('user.forms') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  ></path>
+                </svg>
+                <span class="ml-4">Select status</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ route('user.index') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  ></path>
+                </svg>
+                <span class="ml-4">Send email</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ route('user.vacanciesemployee') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                  ></path>
+                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                </svg>
+                <span class="ml-4">Vacation management</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ route('user.remotivecalendar') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                  ></path>
+                </svg>
+                <span class="ml-4">Calendar</span>
+              </a>
+            </li>
+
+
+          
+                
+            
+        </div>
+      </aside>
+      <div class="flex flex-col flex-1 w-full">
+        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+          <div
+            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
+          >
+            <!-- Mobile hamburger -->
+            <button
+              class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+              @click="toggleSideMenu"
+              aria-label="Menu"
+            >
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <!-- Search input -->
+            <div class="flex justify-center flex-1 lg:mr-32">
+              
+            </div>
+            <ul class="flex items-center flex-shrink-0 space-x-6">
+              <!-- Theme toggler -->
+              <li class="flex">
+                <button
+                  class="rounded-md focus:outline-none focus:shadow-outline-purple"
+                  @click="toggleTheme"
+                  aria-label="Toggle color mode"
+                >
+                 <template x-if="!dark">
+                    <svg
+                      class="w-5 h-5"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                      ></path>
+                    </svg>
+                  </template>
+                  <template x-if="dark">
+                    <svg
+                      class="w-5 h-5"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                 </template>
+                </button>
+              </li>
+              <!-- Notifications menu -->
+              <li class="relative hidden">
+                <button
+                  class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
+                  @click="toggleNotificationsMenu"
+                  @keydown.escape="closeNotificationsMenu"
+                  aria-label="Notifications"
+                  aria-haspopup="true"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
+                    ></path>
+                  </svg>
+                  <!-- Notification badge -->
+                  <span
+                    aria-hidden="true"
+                    class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"
+                  ></span>
+                </button>
+                <template x-if="isNotificationsMenuOpen">
+                  <ul
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    @click.away="closeNotificationsMenu"
+                    @keydown.escape="closeNotificationsMenu"
+                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
+                  >
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#"
+                      >
+                        <span>Messages</span>
+                        <span
+                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
+                        >
+                          13
+                        </span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#"
+                      >
+                        <span>Sales</span>
+                        <span
+                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
+                        >
+                          2
+                        </span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#"
+                      >
+                        <span>Alerts</span>
+                      </a>
+                    </li>
+                  </ul>
+                </template>
+              </li>
+              <!-- Profile menu -->
+
+
+
+              <div x-data="data()" class="relative inline-block" @click.away="closeProfileMenu">
+    <!-- Avatar Button -->
+    <button
+        @click="toggleProfileMenu"
+        @keydown.escape="closeProfileMenu"
+        class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
+        aria-label="Account"
+        aria-haspopup="true"
+    >
+        <img
+            class="object-cover w-8 h-8 rounded-full"
+            src="https://static.vecteezy.com/system/resources/previews/036/319/765/non_2x/user-icon-people-illustration-sign-man-symbol-avatar-logo-vector.jpg"
+            alt="User avatar"
+            aria-hidden="true"
+        />
+    </button>
+
+    <!-- Dropdown Menu -->
+    <template x-if="isProfileMenuOpen">
+        <ul
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="absolute right-0 w-56 mt-2 p-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+            aria-label="submenu"
+        >
+            <!-- Profile Link -->
+            <li class="flex">
+                <a
+                    class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    href="{{ route('profile.edit') }}"
+                >
+                    <svg
+                        class="w-4 h-4 mr-3"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </li>
+
+            <!-- Logout -->
+            <li class="flex">
+                <form method="POST" action="{{ route('logout') }}" class="w-full">
+                    @csrf
+                    <button
+                        type="submit"
+                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    >
+                        <svg
+                            class="w-4 h-4 mr-3"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                        </svg>
+                        <span>Log out</span>
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </template>
+</div>
+
+
+                  </ul>
+                </template>
+
+
+              </li>
+            </ul>
+          </div>
+        </header>
+        <main class="h-full overflow-y-auto">
+        
+           @hasSection('content')
+          @yield('content') 
+          @else  
+            <div class="container px-6 mx-auto grid">
+            
+          
+        
+
+
+
+
+
+
+
+
+            
+            <section
+    class="min-h-[70vh] flex items-center justify-center transition-colors duration-300 mt-4"
+>
+    <div
+        class="welcome-card-animate
+               w-full mx-4 rounded-3xl
+               bg-white/90 border border-slate-200 shadow-2xl shadow-slate-200/80 backdrop-blur-xl
+               dark:bg-slate-900/80 dark:border-slate-700/70 dark:shadow-slate-900/60
+               px-8 py-10 flex flex-col items-center gap-8 transition-colors duration-300"
+    >
+        {{-- Avatar + greeting --}}
+        <div class="flex flex-col items-center gap-4 text-center">
+            <div
+                class="w-32 h-32 rounded-full
+                       bg-gradient-to-br from-sky-400 via-indigo-500 to-emerald-400
+                       dark:bg-gradient-to-br dark:from-indigo-500 dark:via-sky-500 dark:to-emerald-400
+                       flex items-center justify-center
+                       shadow-lg shadow-slate-300/70 dark:shadow-sky-900/60
+                       transition-transform duration-300 hover:scale-105"
+            >
+                <span class="avatar-wave text-5xl select-none">👋</span>
+            </div>
+
+            <div>
+                <p class="text-sm uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-1">
+                    Welcome back
+                </p>
+                <h1 class="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-slate-50">
+                    <span id="welcomeName">{{ auth()->user()->name ?? 'Welcome' }}</span>,
+                    <span class="text-sky-500 dark:text-sky-400 font-bold">nice to see you.</span>
+                </h1>
+            </div>
+        </div>
+
+        {{-- Date + stats --}}
+        <div class="w-full flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+            {{-- Current day --}}
+            <div
+                class="stat-card
+                       flex-1 rounded-2xl
+                       border border-slate-200 bg-rose-50
+                       dark:border-rose-700/70 dark:bg-rose-950/40
+                       px-5 py-4 flex flex-col justify-between
+                       transition-colors duration-300
+                       transition-transform hover:-translate-y-1 hover:shadow-lg
+                       hover:shadow-slate-200/80 dark:hover:shadow-slate-900/80"
+            >
+                <p class="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase mb-1">
+                    Today
+                </p>
+                <p id="current-day" class="text-lg font-medium text-slate-900 dark:text-slate-50">
+                    {{-- Fallback from backend if JS disabled --}}
+                    {{ now()->format('l, d F Y') }}
+                </p>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                    Keep your balance between work and rest.
+                </p>
+            </div>
+
+            {{-- Vacation days left --}}
+            <div
+                class="stat-card
+                       flex-1 rounded-2xl
+                       border border-emerald-200 bg-emerald-50
+                       dark:border-emerald-700/70 dark:bg-emerald-950/40
+                       px-5 py-4 flex flex-col justify-between
+                       transition-colors duration-300
+                       transition-transform hover:-translate-y-1 hover:shadow-lg
+                       hover:shadow-emerald-100/80 dark:hover:shadow-emerald-900/80"
+            >
+                <p
+                    class="text-xs font-semibold tracking-wide
+                           text-emerald-700 dark:text-emerald-300
+                           uppercase mb-1 flex items-center gap-1.5"
+                >
+                    <span class="text-base">🌴</span>
+                    Vacation days left
+                </p>
+                <p id="vacationDaysLeft" class="text-3xl font-semibold text-emerald-700 dark:text-emerald-200">
+                    {{ $vacationDaysLeft ?? 0 }}
+                </p>
+                <p class="mt-2 text-xs text-emerald-700/80 dark:text-emerald-200/70">
+                    Plan your next break before you really need it.
+                </p>
+            </div>
+
+            {{-- Requests waiting for approval --}}
+            <div
+                class="stat-card
+                       flex-1 rounded-2xl
+                       border border-amber-200 bg-amber-50
+                       dark:border-amber-700/70 dark:bg-amber-950/40
+                       px-5 py-4 flex flex-col justify-between
+                       transition-colors duration-300
+                       transition-transform hover:-translate-y-1 hover:shadow-lg
+                       hover:shadow-amber-100/80 dark:hover:shadow-amber-900/80"
+            >
+                <p
+                    class="text-xs font-semibold tracking-wide
+                           text-amber-700 dark:text-amber-300
+                           uppercase mb-1 flex items-center gap-1.5"
+                >
+                    <span class="text-base">📩</span>
+                    Pending approvals
+                </p>
+                <p id="pendingleaves" class="text-3xl font-semibold text-amber-700 dark:text-amber-200">
+                    {{ $pendingRequests ?? 0 }}
+                </p>
+                <p class="mt-2 text-xs text-amber-700/80 dark:text-amber-200/70">
+                    We’ll let you know as soon as something moves.
+                </p>
+            </div>
+        </div>
+
+        {{-- Quote of the day --}}
+        <div
+            class="quote-card
+                   w-full rounded-2xl
+                   border border-slate-200 bg-indigo-50
+                   dark:border-indigo-700/70 dark:bg-indigo-950/40
+                   px-6 py-5 flex flex-col md:flex-row items-start md:items-center gap-4
+                   transition-colors duration-300
+                   transition-transform hover:-translate-y-1 hover:shadow-lg
+                   hover:shadow-slate-200/80 dark:hover:shadow-slate-900/80"
+        >
+            <div
+                class="w-10 h-10 rounded-full
+                       bg-sky-100 border border-sky-200
+                       dark:bg-sky-500/20 dark:border-sky-400/40
+                       flex items-center justify-center shrink-0
+                       transition-colors duration-300"
+            >
+                <span class="text-xl">💬</span>
+            </div>
+
+            <div class="flex-1">
+                <p
+                    id="quote-text"
+                    class="text-sm md:text-base text-slate-800 dark:text-slate-100 leading-relaxed"
+                >
+                    Loading quote of the day…
+                </p>
+                <p id="quote-author" class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                    &nbsp;
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Minimal CSS for the waving avatar animation + entrance --}}
+<style>
+    @keyframes hand-wave {
+        0% {
+            transform: rotate(0deg);
+        }
+        15% {
+            transform: rotate(14deg);
+        }
+        30% {
+            transform: rotate(-8deg);
+        }
+        40% {
+            transform: rotate(14deg);
+        }
+        50% {
+            transform: rotate(-4deg);
+        }
+        60% {
+            transform: rotate(10deg);
+        }
+        70%,
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    .avatar-wave {
+        animation: hand-wave 1.8s ease-in-out infinite;
+        transform-origin: 70% 70%;
+        display: inline-block;
+    }
+
+    @keyframes welcome-fade-up {
+        0% {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .welcome-card-animate {
+        animation: welcome-fade-up 0.7s ease-out;
+    }
+</style>
+
+ 
+           
+          </div>
+          @endif
+        </main>
+      </div>
+    </div>  
+  </body>
+</html>
